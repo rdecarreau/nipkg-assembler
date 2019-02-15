@@ -15,9 +15,9 @@ versioned, "package". You can then use the NIPM client to extract that package
 on to a target computer.
 
 For consistent terminology, we first break that process up into three parts:
-  1. Assembly
-  2. Compression
-  3. Extracting
+  1. Assemble
+  2. Compress
+  3. Extract
 
 The nipkg binary from National Instruments does a great job at steps two and 
 three, but step one is manual. That is where this tool comes in.
