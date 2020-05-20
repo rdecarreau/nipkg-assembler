@@ -54,7 +54,8 @@ create a default package.
 python create_default_package.py [-d path/to/desired/root/folder/]
 ```
 You will now see the default package folder created at the path specified by 
-the PKG_ROOT_DIRECTORY environment variable, or passed into the -d argument.
+the PKG_ROOT_DIRECTORY environment variable, in the current working directory, 
+or passed into the -d argument.
 
 This default directory is defined in this repo, feel 
 free to change it to meet your needs.
@@ -65,7 +66,7 @@ Once you have a default directory, one of the most common things you need to
 do is add folders (usually outputs from various compilers) to specific 
 installation target locations.
 ```commandline
-python add_directory_to_package.py -i folder/to/copy -t <Installation Target>
+python add_directory_to_package.py -s folder/to/copy -t <Installation Target>
 ```
 
 This command uses the installation targets defined under "Name in File Package" 
@@ -77,7 +78,6 @@ e.g. "ProgramData"
 After you've added all your folders and files, the last thing is to update the 
 control file. This file is documented by NI,
 [here](http://www.ni.com/documentation/en/ni-package-manager/18.5/manual/control-file-attributes/). 
-
 ```commandline
 python update_control_file.py -a <Attribute name> -v <Attribute value>
 ```

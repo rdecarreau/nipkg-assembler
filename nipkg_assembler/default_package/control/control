@@ -1,0 +1,13 @@
+Architecture: windows_x64
+Depends:
+Description: A lightweight template directory
+DisplayName: Template Package
+DisplayVersion: 18.5.1
+Homepage:
+Maintainer: Your Name Here <Email>
+Package: template-package
+Plugin: file
+ReleaseNotes:
+Section: Application Software
+UserVisible: yes
+Version: 0.0.1
