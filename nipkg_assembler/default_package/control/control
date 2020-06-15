@@ -1,13 +1,15 @@
 Architecture: windows_x64
-Depends:
-Description: A lightweight template directory
+Depends: 'null'
+Description: Example of multi-line attribute contents. The single space at the beginning
+  of this line creates a paragraph. . The double space at the beginning of these lines
+  creates preformatted text that preserves whitespace and line breaks.
 DisplayName: Template Package
 DisplayVersion: 18.5.1
-Homepage:
+Homepage: 'null'
 Maintainer: Your Name Here <Email>
 Package: template-package
 Plugin: file
-ReleaseNotes:
+ReleaseNotes: 'null'
 Section: Application Software
-UserVisible: yes
-Version: 0.0.1
+UserVisible: 'true'
+Version: 1.0.0

@@ -1,5 +1,8 @@
 import argparse
-from yaml import load
+import logging
+
+import yaml
+
 from common import *
 
 
@@ -12,13 +15,33 @@ def main(directory, attribute, value):
     :param value: String to which you'd like to set the attribute
     :return: True if the attribute was updated.
     """
+    logger = logging.getLogger(__name__)
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
     package = get_package_root(directory)
     control_file = package.joinpath('control/control')
+    logger.debug("Loading Control File: %s", control_file)
     if not control_file.exists():
         raise FileNotFoundError("Control file not found: {}".format(
             package
         ))
-    control = load(control_file,)
+
+    with open(control_file, 'r+') as cf:
+        should_save = False
+        control = yaml.safe_load(cf)
+
+        if attribute in control:
+            control[attribute] = value
+            should_save = True
+        else:
+            raise Exception("Attribute {} not found in the control file".format(
+                            attribute))
+        if should_save:
+            # Return to start of file
+            cf.seek(0)
+            yaml.dump(control, cf)
+            # remove the rest of the file
+            cf.truncate()
 
 
 parser = argparse.ArgumentParser()
